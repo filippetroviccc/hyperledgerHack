@@ -1,0 +1,43 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace org.example.biznet
+asset Drug identified by serialNumber {
+  o String name
+  o String owner
+  o Boolean taxIsPaid default = false
+  o String serialNumber
+  --> Factory factory
+  o Boolean sold default = false 
+}
+participant Factory identified by uniqueId {
+  o String uniqueId
+  o String name
+}
+participant Distributer identified by uniqueId {
+  o String uniqueId
+  o String name
+}
+participant Pharmacy identified by uniqueId {
+  o String uniqueId
+  o String name
+}
+participant GOV identified by uniqueId {
+  o String uniqueId
+  o String Name
+}
+transaction transferOwnerRightsToDistributer {
+  --> Drug drug
+  --> Distributer distributer
+}
+transaction transferOwnerRightsToPharmacy {
+  --> Drug drug
+  --> Pharmacy pharmacy
+}
+transaction taxesPaid {
+  --> Drug drug
+}
+transaction soldDrug {
+  --> Drug drug
+} 

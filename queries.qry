@@ -1,0 +1,6 @@
+query checkForDrug {
+  description: "Bla Bla"
+  statement:
+      SELECT org.example.biznet.Drug
+          WHERE (serialNumber==_$serialNumber)
+}
