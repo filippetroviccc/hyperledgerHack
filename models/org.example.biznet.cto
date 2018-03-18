@@ -6,8 +6,10 @@ namespace org.example.biznet
 asset Drug identified by serialNumber {
   o String name
   o String owner
+  o String validTo
   o Boolean taxIsPaid default = false
   o String serialNumber
+  o String[] registeredLocations
   --> Factory factory
   o Boolean sold default = false 
 }
